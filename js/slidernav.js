@@ -1,10 +1,3 @@
-/*
- *  SliderNav - A Simple Content Slider with a Navigation Bar
- *  Copyright 2010 Monjurul Dolon, http://mdolon.com/
- *  Download by http://www.jb51.net
- *  Released under the MIT, BSD, and GPL Licenses.
- *  More information: http://devgrow.com/slidernav
- */
 $.fn.sliderNav = function(options) {
 	var defaults = { items: ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"], debug: false, height: null, arrows: true};
 	var opts = $.extend(defaults, options); var o = $.meta ? $.extend({}, opts, $$.data()) : opts; var slider = $(this); $(slider).addClass('slider');
@@ -28,8 +21,6 @@ $.fn.sliderNav = function(options) {
 	});
 	if(o.arrows){
 		$('.slider-nav',slider).css('top','5rem');
-		// $(slider).prepend('<div class="slide-up end"><span class="arrow up"></span></div>');
-		// $(slider).append('<div class="slide-down"><span class="arrow down"></span></div>');
 		$('.slide-down',slider).click(function(){
 			$('.slider-content',slider).animate({scrollTop : "+="+height+"px"}, 500);
 		});
@@ -38,3 +29,8 @@ $.fn.sliderNav = function(options) {
 		});
 	}
 };
+
+$(document).ready(function(){
+	$('#slider').sliderNav();
+	$('#transformers').sliderNav({items:['autobots','decepticons'], debug: true, height: '300', arrows: false});
+});
